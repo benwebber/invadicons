@@ -19,3 +19,10 @@ Request an invadicon by passing an MD5 hash to the application. Avatars are serv
     http://invadicons.example.org/11ac68eee8398ae00e9f6b11b22f7efd
     http://invadicons.example.org/11ac68eee8398ae00e9f6b11b22f7efd.png
     http://invadicons.example.org/11ac68eee8398ae00e9f6b11b22f7efd?size=128
+
+The default size is 100px by 100px.
+
+## TODO
+
+* write invadicons to disk after being served once
+* implement more aesthetic foreground and background colour selector
