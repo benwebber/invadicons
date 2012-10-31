@@ -1,2 +1,4 @@
-fabric
 flask
+numpy
+PIL
+pypng
