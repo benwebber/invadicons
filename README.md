@@ -9,6 +9,6 @@ This is an open-source clone of [Gravatar's retro avatars](https://en.gravatar.c
 
 These are some of the avatars you get when you hash `00000000000000000000000000000000` repeatedly.
 
-![11ac68eee8398ae00e9f6b11b22f7efd](doc/img/11ac68eee8398ae00e9f6b11b22f7efd.png)
-![125a98d55e6aa3b1621f0c73554ec38d](doc/img/125a98d55e6aa3b1621f0c73554ec38d.png)
-![dff5a32d020cd482320a7d7ef3dde23c](doc/img/dff5a32d020cd482320a7d7ef3dde23c.png)
+![11ac68eee8398ae00e9f6b11b22f7efd](/benwebber/invadicons/raw/master/doc/img/11ac68eee8398ae00e9f6b11b22f7efd.png)
+![125a98d55e6aa3b1621f0c73554ec38d](/benwebber/invadicons/raw/master/doc/img/125a98d55e6aa3b1621f0c73554ec38d.png)
+![dff5a32d020cd482320a7d7ef3dde23c](/benwebber/invadicons/raw/master/doc/img/dff5a32d020cd482320a7d7ef3dde23c.png)
