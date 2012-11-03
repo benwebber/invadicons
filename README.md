@@ -6,7 +6,7 @@ This is an open-source clone of [Gravatar's retro avatars](https://en.gravatar.c
 
 ## Examples
 
-These are some of the avatars you get when you hash `00000000000000000000000000000000` repeatedly.
+These are some of the invadicons you get when you hash `00000000000000000000000000000000` repeatedly.
 
 ![11ac68eee8398ae00e9f6b11b22f7efd](/benwebber/invadicons/raw/master/doc/img/11ac68eee8398ae00e9f6b11b22f7efd.png)
 ![125a98d55e6aa3b1621f0c73554ec38d](/benwebber/invadicons/raw/master/doc/img/125a98d55e6aa3b1621f0c73554ec38d.png)
@@ -14,7 +14,7 @@ These are some of the avatars you get when you hash `000000000000000000000000000
 
 ## Usage
 
-Request an invadicon by passing an MD5 hash to the application. Invadicons are served as PNG or SVG files. The default size is 100px by 100px.
+Request an invadicon by passing an MD5 hash to the application. Invadicons are served as PNG or SVG files. The default format is PNG, and the default size is 100px by 100px.
 
 ### PNG
 
