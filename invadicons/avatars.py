@@ -9,6 +9,32 @@ import StringIO
 
 from PIL import Image
 
+class Invadicon(object):
+    """
+    An invadicon.
+    """
+    def __init__(self, md5hash, *args, **kwargs):
+        self.md5hash = md5hash
+        self.coords = get_coords(self.md5hash)
+        self.imgarray = fill_pixel_array(self.coords)
+        self.palette = choose_palette(self.md5hash)
+        self.bg = '#%s' % self.md5hash[6:12]
+        self.fg = '#%s' % self.md5hash[0:6]
+        self.size = 100
+    def save(self, *args, **kwargs):
+        strIO = StringIO.StringIO()
+        w = png.Writer(palette = self.palette, bitdepth=1, size=(10,10))
+        w.write(strIO, self.imgarray)
+        strIO.seek(0)
+        # Resize the image to a given size
+        img = Image.open(strIO)
+        img = img.resize((self.size, self.size))
+        outfile = StringIO.StringIO()
+        img.save(outfile, format='png')
+        return outfile
+    def __repr__(self):
+        return u"<Invadicon: %s>" % (self.md5hash)
+
 def chunk(s, n):
     """
     Chunks a string into fragments n characters long.
@@ -42,18 +68,12 @@ def get_coords(md5hash):
         coords.append(map_coords(c))
     return list(set(coords))
 
-def choose_foreground(md5hash):
+def choose_palette(md5hash):
     """
     Placeholder function for something more advanced.
     """
-    return pixelize(md5hash[0:6])
+    return (pixelize(md5hash[6:12]), pixelize(md5hash[0:6]))
 
-def choose_background(md5hash):
-    """
-    Placeholder function for something more advanced.
-    """
-    return pixelize(md5hash[6:12])
-    
 def pixelize(colour):
     """
     Takes a colour in #RRGGBB and returns a pixel value as an RGB tuple.
@@ -73,26 +93,3 @@ def fill_pixel_array(coords):
     arr_mirror = numpy.fliplr(arr)
     arr = numpy.hstack((arr, arr_mirror))
     return arr
-
-def generate_avatar(md5hash, size):
-    """
-    Generate an 8-bit avatar from a given MD5 hash. Returns a file-like object.
-    """
-    # Choose the avatar palette
-    fg = choose_foreground(md5hash)
-    bg = choose_background(md5hash)
-    palette = [bg, fg]   
-    # Populate the pixel array
-    coords = get_coords(md5hash)
-    imgarray = fill_pixel_array(coords)
-    # Write the image to a file-like object
-    strIO = StringIO.StringIO()
-    w = png.Writer(palette = palette, bitdepth=1, size=(10,10))
-    w.write(strIO, imgarray)
-    strIO.seek(0)
-    # Resize the image to a given size
-    img = Image.open(strIO)
-    img = img.resize((size, size))
-    outfile = StringIO.StringIO()
-    img.save(outfile, format='png')
-    return outfile

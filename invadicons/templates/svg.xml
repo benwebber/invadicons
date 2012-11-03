@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="{{ invadicon.size }}" height="{{ invadicon.size }}" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="{{ invadicon.bg }}" />
+  {%- for r in invadicon.imgarray %}
+    {%- set row_loop = loop %}
+    {%- for c in r %}
+        {%- if c == 1 %}
+  <rect x="{{ loop.index*10 - 10 }}" y="{{ row_loop.index*10 - 10}}" width="{{ invadicon.size / 10 }}" height="{{ invadicon.size / 10 }}" fill="{{ invadicon.fg }}" />
+        {%- endif %}
+    {%- endfor %}
+  {%- endfor %}
+</svg>

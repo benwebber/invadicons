@@ -14,15 +14,18 @@ These are some of the avatars you get when you hash `000000000000000000000000000
 
 ## Usage
 
-Request an invadicon by passing an MD5 hash to the application. Avatars are served as PNG files. Optionally specify the `.png` suffix, or a `size` in pixels.
+Request an invadicon by passing an MD5 hash to the application. Invadicons are served as PNG or SVG files. The default size is 100px by 100px.
+
+### PNG
+
+Optionally specify the `.png` suffix, or a `size` in pixels.
 
     http://invadicons.example.org/11ac68eee8398ae00e9f6b11b22f7efd
     http://invadicons.example.org/11ac68eee8398ae00e9f6b11b22f7efd.png
     http://invadicons.example.org/11ac68eee8398ae00e9f6b11b22f7efd?size=128
 
-The default size is 100px by 100px.
+### SVG
 
-## TODO
+Specify the `.svg` suffix.
 
-* write invadicons to disk after being served once
-* implement more aesthetic foreground and background colour selector
+    http://invadicons.example.org/11ac68eee8398ae00e9f6b11b22f7efd.svg
