@@ -9,6 +9,7 @@ import (
 	"image/color"
 	"image/draw"
 	"image/png"
+	"io"
 	"os"
 	"strings"
 
@@ -63,8 +64,8 @@ func (i *Invadicon) Render(w, h int) image.Image {
 	return m
 }
 
-// Write the invadicon to a file descriptor.
-func (i *Invadicon) Write(out *os.File, w, h int) {
+// Write the invadicon to a data stream.
+func (i *Invadicon) Write(out io.Writer, w, h int) {
 	img := i.Render(w, h)
 	png.Encode(out, img)
 }
