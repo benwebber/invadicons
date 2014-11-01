@@ -17,6 +17,8 @@ import (
 	"github.com/disintegration/imaging"
 )
 
+const DefaultSize = 100
+
 type Invadicon struct {
 	Hash       []byte
 	Background color.RGBA
@@ -43,8 +45,8 @@ func New(s string) (*Invadicon, error) {
 		Background: bg,
 		Foreground: fg,
 		Bitmap:     bitmap,
-		Width:      100,
-		Height:     100,
+		Width:      DefaultSize,
+		Height:     DefaultSize,
 	}, nil
 }
 
