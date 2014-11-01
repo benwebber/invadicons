@@ -18,5 +18,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	i.Write(os.Stdout, 100, 100)
+	i.Write(os.Stdout)
 }

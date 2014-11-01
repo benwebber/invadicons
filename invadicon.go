@@ -22,6 +22,8 @@ type Invadicon struct {
 	Background color.RGBA
 	Foreground color.RGBA
 	Bitmap     uint64
+	Width      uint
+	Height     uint
 }
 
 // New creates a new invadicon from a seed string.
@@ -41,11 +43,13 @@ func New(s string) (*Invadicon, error) {
 		Background: bg,
 		Foreground: fg,
 		Bitmap:     bitmap,
+		Width:      100,
+		Height:     100,
 	}, nil
 }
 
-// Render the invadicon at a given size.
-func (i *Invadicon) Render(w, h int) image.Image {
+// Render the invadicon.
+func (i *Invadicon) Render() image.Image {
 	// Draw the base image, including a 1px border.
 	img := image.NewRGBA(image.Rect(0, 0, 10, 10))
 	// Fill in a uniform background.
@@ -60,24 +64,24 @@ func (i *Invadicon) Render(w, h int) image.Image {
 		}
 	}
 	// Resize the image.
-	m := imaging.Resize(img, w, h, imaging.NearestNeighbor)
+	m := imaging.Resize(img, int(i.Width), int(i.Height), imaging.NearestNeighbor)
 	return m
 }
 
 // Write the invadicon to a data stream.
-func (i *Invadicon) Write(out io.Writer, w, h int) {
-	img := i.Render(w, h)
+func (i *Invadicon) Write(out io.Writer) {
+	img := i.Render()
 	png.Encode(out, img)
 }
 
 // Save the invadicon to the given filename.
-func (i *Invadicon) Save(file string, w, h int) error {
+func (i *Invadicon) Save(file string) error {
 	out, err := os.Create(file)
 	defer out.Close()
 	if err != nil {
 		return err
 	}
-	i.Write(out, w, h)
+	i.Write(out)
 	return nil
 }
 
